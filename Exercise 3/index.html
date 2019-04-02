@@ -1,0 +1,59 @@
+<!DOCTYPE html>  
+<html lang="en">  
+     <head>
+          <meta charset="utf-8">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+          <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+          <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+          <title>Bootstrap 101 Template</title>
+     
+      
+          <!-- Bootstrap -->
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+     </head>  
+     <body>  
+          <p><br /><br /></p>  
+          <div class="container">  
+               <h1 align="center">Swapi</h3><br />  
+               <h3 align="center">Swapi Database</h3><br />  
+               <table class="table table-bordered table striped table-hover">  
+                    <thead>  
+                         <tr>  
+                              <th>name</th>  
+                              <th>rotation_period</th>  
+                              <th>orbital_period</th>
+                              <th>diameter</th>  
+                              <th>climate</th>  
+                              <th>gravity</th>
+                              <th>terrain</th>  
+                              <th>surfce_water</th>  
+                              <th>population</th>
+                              <th>residents</th>  
+                              <th>films</th>
+                              <th>created</th>  
+                              <th>edited</th>  
+                              <th>url</th>  
+                         </tr>  
+                    </thead>  
+               </table>
+               <script>
+                   $(document).ready(function(){
+                       $.ajax({
+                           url:"data.json",
+                           dataType:"json",
+                           success : function(data) {
+                               $(data.users).each(function(value){
+                                   var record="<tr><td>"+value.name+"</td><td>"+value.rotation_period+"</td><td>"+
+                                    value.orbital_period+"</td><td>"+value.diameter+"</td><td>"+value.climate+"</td><td>"+
+                                    value.gravity+"</td><td>"+value.terrain+"</td><td>"+value.surface_water+"</td><td>"+
+                                    value.population+"</td><td>"+value.residents+"</div><div>"+value.films+"</td><td>"+
+                                    value.created+"</td><td>"+value.edited+"</td><td>"+value.url+"</td></tr>";
+                                $("table").append(record);
+                               });
+                           }
+                       });
+                   });
+               </script>  
+               </body>
+</html>
